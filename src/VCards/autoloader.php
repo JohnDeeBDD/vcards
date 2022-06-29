@@ -1,6 +1,6 @@
 <?php
 
-namespace VForms;
+namespace VCards;
 
 function autoload($className){
     $NS = __NAMESPACE__;
