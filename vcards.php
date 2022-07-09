@@ -22,8 +22,7 @@ $VCards_myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 
 add_shortcode('vcard', [new \VCards\Gridstack, "ShortCodeOutput" ]);
 
-//add_action('wp_enqueue_scripts', [new \VCards\Gridstack(), 'doEnqueuFrontendScripts']);
-
-//add_action('init', [new \VCards\API, ''])
-
 add_action ('rest_api_init', [new \VCards\API, 'doRegisterRoutes']);
+
+add_action('manage_vcard_posts_custom_column', [new \VCards\ColumnsFeature(), 'custom_vcard_column'], 10, 2);
+add_filter('manage_vcard_posts_columns',  [new \VCards\ColumnsFeature(), 'set_custom_edit_vcard_columns']);
